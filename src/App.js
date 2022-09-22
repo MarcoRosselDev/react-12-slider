@@ -12,6 +12,17 @@ function App() {
           <span>/</span>reviewa
         </h2>
       </div>
+      <div className="section-center">
+        {people.map((person, personIndex) => {
+          const { id, image, name, title, quote } = person;
+          // more stuff coming up
+          return (
+            <article key={id}>
+              <img src={image} alt={name} className="person-img" />
+            </article>
+          );
+        })}
+      </div>
     </section>
   );
 }
