@@ -4,7 +4,7 @@ import { FaQuoteRight } from "react-icons/fa";
 import data from "./data";
 function App() {
   const [people, setPeople] = useState(data);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(2);
   return (
     <section className="section">
       <div className="title">
@@ -16,8 +16,15 @@ function App() {
         {people.map((person, personIndex) => {
           const { id, image, name, title, quote } = person;
           // more stuff coming up
+          let position = "nextSlide";
+          if (personIndex === index) {
+            position = "activeSlide";
+          }
+          if (personIndex === index - 1) {
+            position = "lastSlide";
+          }
           return (
-            <article key={id}>
+            <article className={position} key={id}>
               <img src={image} alt={name} className="person-img" />
               <h4>{name}</h4>
               <p className="title">{title}</p>
